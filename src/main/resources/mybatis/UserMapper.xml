@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.west2wp.dao.UserMapper">
+
+    <select id="selectByUsername" resultType="com.west2wp.pojo.User">
+        select * from west2_wp.usertable where username = #{username}
+    </select>
+
+    <insert id="saveUser" parameterType="com.west2wp.pojo.User" >
+        insert into west2_wp.usertable (username,password,email,photo,space) values (#{username},#{password},#{email},#{photo},#{space})
+    </insert>
+
+    <update id="updatePassword" parameterType="string">
+        update west2_wp.usertable set password = #{password} where username = #{username}
+    </update>
+
+    <select id="selectUrlByUsername" parameterType="string" resultType="string">
+        select photo from west2_wp.usertable where username = #{username}
+    </select>
+
+    <update id="updateUrlByUsername" parameterType="com.west2wp.pojo.User">
+        update west2_wp.usertable set photo = #{photo} where username = #{username}
+    </update>
+
+    <select id="selectSpaceByUsername" parameterType="string" resultType="double">
+        select space from west2_wp.usertable where username = #{username}
+    </select>
+
+    <select id="selectUserByUrl" parameterType="string" resultType="string">
+        select username from west2_wp.datatable where url = #{url}
+    </select>
+
+    <select id="selectUserDataByUrl" parameterType="string" resultType="com.west2wp.pojo.FileData">
+        select * from west2_wp.datatable where url = #{url}
+    </select>
+
+    <update id="updateSpaceByUsername">
+        update west2_wp.usertable set space = #{space} where username = #{username}
+    </update>
+
+    <insert id="saveFileData" parameterType="com.west2wp.pojo.FileData">
+        insert into west2_wp.datatable (url,username,filename,parent,type,sizes,date) values (#{url},#{username},#{filename},#{parent},#{type},#{sizes},#{date})
+    </insert>
+
+    <select id="getFileDataByParentFile" parameterType="string" resultType="com.west2wp.pojo.FileData">
+        select * from west2_wp.datatable where username = #{username} and url = #{parent} and type = #{type}
+    </select>
+
+    <select id="getSameGradeFileDataByParentFile" parameterType="string" resultType="com.west2wp.pojo.FileData">
+        select * from west2_wp.datatable where username = #{username} and parent = #{parent}
+    </select>
+
+    <delete id="deleteFileByUrlAndUsername" parameterType="string">
+        delete from west2_wp.datatable where username = #{username} and url = #{url}
+    </delete>
+
+    <select id="getSizeByUrl" parameterType="string" resultType="double">
+        select sizes from west2_wp.datatable where url = #{url}
+    </select>
+
+    <select id="getSameGradeFileNameByParentFile" parameterType="string" resultType="com.west2wp.pojo.FileData">
+        select * from west2_wp.datatable where username = #{username} and parent = #{parent} and type = #{type}
+    </select>
+
+    <select id="getAllFavorDataByUsername" parameterType="string" resultType="com.west2wp.pojo.FileData">
+        select * from west2_wp.favortable where username = #{username}
+    </select>
+
+    <insert id="saveFavorFile" parameterType="com.west2wp.pojo.FileData">
+        insert into west2_wp.favortable (url,username,filename,parent,type,sizes,date) values (#{url},#{username},#{filename},#{parent},#{type},#{sizes},#{date})
+    </insert>
+
+    <select id="selectFavorFile" parameterType="string" resultType="com.west2wp.pojo.FileData">
+        select * from west2_wp.favortable where username = #{username} and url = #{url}
+    </select>
+
+    <delete id="deleteFavorFileByUsernameAndUrl" parameterType="string">
+        delete from west2_wp.favortable where username = #{username} and url = #{url}
+    </delete>
+
+    <delete id="deleteFavorFileByUrl" parameterType="string">
+        delete from west2_wp.favortable where url = #{url}
+    </delete>
+</mapper>
