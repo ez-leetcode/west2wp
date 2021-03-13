@@ -4,9 +4,17 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+<<<<<<< HEAD
 @Data                  //类的setter和getter方法
 @AllArgsConstructor    //类的有参构造函数
 @NoArgsConstructor     //类的无参构造函数
+=======
+
+@Data                  //类的setter和getter方法
+@AllArgsConstructor    //类的有参构造函数
+@NoArgsConstructor     //类的无参构造函数
+
+>>>>>>> 2017e29 (west2wp)
 //为实现文件夹体系,在上传文件时除了url额外记录用户的父级文件,对于非资源文件(文件夹)特别设置type
 public class FileData {
     private String url;          //文件url

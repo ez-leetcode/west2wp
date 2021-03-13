@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 2021-03-10 === [main] === INFO  === com.west2wp.West2wpApplication === Starting West2wpApplication using Java 15.0.1 on LAPTOP-DBKFOQVO with PID 59556 (C:\Users\10060\IdeaProjects\west2wpJava\target\classes started by 10060 in C:\Users\10060\IdeaProjects\west2wpJava)
 2021-03-10 === [main] === INFO  === com.west2wp.West2wpApplication === The following profiles are active: dev
 2021-03-10 === [main] === INFO  === o.s.d.r.config.RepositoryConfigurationDelegate === Multiple Spring Data modules found, entering strict repository configuration mode!
@@ -3548,3 +3549,113 @@ Caused by: java.lang.NullPointerException: Cannot invoke "org.springframework.da
 2021-03-10 === [http-nio-8081-exec-5] === WARN  === com.west2wp.controller.UserController === 登录失败,用户名或密码错误,username:gaoxu password:124
 2021-03-10 === [http-nio-8081-exec-6] === INFO  === com.west2wp.controller.UserController === 正在尝试登录用户:gaoxu
 2021-03-10 === [http-nio-8081-exec-6] === WARN  === com.west2wp.controller.UserController === 登录失败,用户名或密码错误,username:gaoxu password:124
+=======
+2021-03-13 === [main] === INFO  === com.west2wp.West2wpApplicationTests === Starting West2wpApplicationTests using Java 15.0.1 on LAPTOP-DBKFOQVO with PID 19356 (started by 10060 in C:\Users\10060\IdeaProjects\west2wpJava)
+2021-03-13 === [main] === INFO  === com.west2wp.West2wpApplicationTests === The following profiles are active: dev
+2021-03-13 === [main] === INFO  === o.s.d.r.config.RepositoryConfigurationDelegate === Multiple Spring Data modules found, entering strict repository configuration mode!
+2021-03-13 === [main] === INFO  === o.s.d.r.config.RepositoryConfigurationDelegate === Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2021-03-13 === [main] === INFO  === o.s.d.r.config.RepositoryConfigurationDelegate === Finished Spring Data repository scanning in 41 ms. Found 0 Redis repository interfaces.
+2021-03-13 === [main] === INFO  === o.s.scheduling.concurrent.ThreadPoolTaskExecutor === Initializing ExecutorService 'applicationTaskExecutor'
+2021-03-13 === [main] === INFO  === com.west2wp.West2wpApplicationTests === Started West2wpApplicationTests in 7.216 seconds (JVM running for 9.566)
+2021-03-13 === [SpringContextShutdownHook] === INFO  === o.s.scheduling.concurrent.ThreadPoolTaskExecutor === Shutting down ExecutorService 'applicationTaskExecutor'
+2021-03-13 === [SpringContextShutdownHook] === INFO  === com.alibaba.druid.pool.DruidDataSource === {dataSource-0} closing ...
+2021-03-13 === [main] === INFO  === com.west2wp.West2wpApplicationTests === Starting West2wpApplicationTests using Java 15.0.1 on LAPTOP-DBKFOQVO with PID 10620 (started by 10060 in C:\Users\10060\IdeaProjects\west2wpJava)
+2021-03-13 === [main] === INFO  === com.west2wp.West2wpApplicationTests === The following profiles are active: dev
+2021-03-13 === [main] === INFO  === o.s.d.r.config.RepositoryConfigurationDelegate === Multiple Spring Data modules found, entering strict repository configuration mode!
+2021-03-13 === [main] === INFO  === o.s.d.r.config.RepositoryConfigurationDelegate === Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2021-03-13 === [main] === INFO  === o.s.d.r.config.RepositoryConfigurationDelegate === Finished Spring Data repository scanning in 37 ms. Found 0 Redis repository interfaces.
+2021-03-13 === [main] === INFO  === o.s.scheduling.concurrent.ThreadPoolTaskExecutor === Initializing ExecutorService 'applicationTaskExecutor'
+2021-03-13 === [main] === INFO  === com.west2wp.West2wpApplicationTests === Started West2wpApplicationTests in 9.771 seconds (JVM running for 11.545)
+2021-03-13 === [SpringContextShutdownHook] === INFO  === o.s.scheduling.concurrent.ThreadPoolTaskExecutor === Shutting down ExecutorService 'applicationTaskExecutor'
+2021-03-13 === [SpringContextShutdownHook] === INFO  === com.alibaba.druid.pool.DruidDataSource === {dataSource-0} closing ...
+2021-03-13 === [main] === INFO  === com.west2wp.West2wpApplicationTests === Starting West2wpApplicationTests using Java 15.0.1 on LAPTOP-DBKFOQVO with PID 13672 (started by 10060 in C:\Users\10060\IdeaProjects\west2wpJava)
+2021-03-13 === [main] === INFO  === com.west2wp.West2wpApplicationTests === The following profiles are active: dev
+2021-03-13 === [main] === INFO  === o.s.d.r.config.RepositoryConfigurationDelegate === Multiple Spring Data modules found, entering strict repository configuration mode!
+2021-03-13 === [main] === INFO  === o.s.d.r.config.RepositoryConfigurationDelegate === Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2021-03-13 === [main] === INFO  === o.s.d.r.config.RepositoryConfigurationDelegate === Finished Spring Data repository scanning in 36 ms. Found 0 Redis repository interfaces.
+2021-03-13 === [main] === INFO  === o.s.scheduling.concurrent.ThreadPoolTaskExecutor === Initializing ExecutorService 'applicationTaskExecutor'
+2021-03-13 === [main] === INFO  === com.west2wp.West2wpApplicationTests === Started West2wpApplicationTests in 7.553 seconds (JVM running for 9.346)
+2021-03-13 === [SpringContextShutdownHook] === INFO  === o.s.scheduling.concurrent.ThreadPoolTaskExecutor === Shutting down ExecutorService 'applicationTaskExecutor'
+2021-03-13 === [SpringContextShutdownHook] === INFO  === com.alibaba.druid.pool.DruidDataSource === {dataSource-0} closing ...
+2021-03-13 === [main] === INFO  === com.west2wp.West2wpApplicationTests === Starting West2wpApplicationTests using Java 15.0.1 on LAPTOP-DBKFOQVO with PID 8116 (started by 10060 in C:\Users\10060\IdeaProjects\west2wpJava)
+2021-03-13 === [main] === INFO  === com.west2wp.West2wpApplicationTests === The following profiles are active: dev
+2021-03-13 === [main] === INFO  === o.s.d.r.config.RepositoryConfigurationDelegate === Multiple Spring Data modules found, entering strict repository configuration mode!
+2021-03-13 === [main] === INFO  === o.s.d.r.config.RepositoryConfigurationDelegate === Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2021-03-13 === [main] === INFO  === o.s.d.r.config.RepositoryConfigurationDelegate === Finished Spring Data repository scanning in 32 ms. Found 0 Redis repository interfaces.
+2021-03-13 === [main] === INFO  === o.s.scheduling.concurrent.ThreadPoolTaskExecutor === Initializing ExecutorService 'applicationTaskExecutor'
+2021-03-13 === [main] === INFO  === com.west2wp.West2wpApplicationTests === Started West2wpApplicationTests in 8.481 seconds (JVM running for 11.444)
+2021-03-13 === [SpringContextShutdownHook] === INFO  === o.s.scheduling.concurrent.ThreadPoolTaskExecutor === Shutting down ExecutorService 'applicationTaskExecutor'
+2021-03-13 === [SpringContextShutdownHook] === INFO  === com.alibaba.druid.pool.DruidDataSource === {dataSource-0} closing ...
+2021-03-13 === [main] === INFO  === com.west2wp.West2wpApplicationTests === Starting West2wpApplicationTests using Java 15.0.1 on LAPTOP-DBKFOQVO with PID 23028 (started by 10060 in C:\Users\10060\IdeaProjects\west2wpJava)
+2021-03-13 === [main] === INFO  === com.west2wp.West2wpApplicationTests === The following profiles are active: dev
+2021-03-13 === [main] === INFO  === o.s.d.r.config.RepositoryConfigurationDelegate === Multiple Spring Data modules found, entering strict repository configuration mode!
+2021-03-13 === [main] === INFO  === o.s.d.r.config.RepositoryConfigurationDelegate === Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2021-03-13 === [main] === INFO  === o.s.d.r.config.RepositoryConfigurationDelegate === Finished Spring Data repository scanning in 38 ms. Found 0 Redis repository interfaces.
+2021-03-13 === [main] === INFO  === o.s.scheduling.concurrent.ThreadPoolTaskExecutor === Initializing ExecutorService 'applicationTaskExecutor'
+2021-03-13 === [main] === INFO  === com.west2wp.West2wpApplicationTests === Started West2wpApplicationTests in 7.773 seconds (JVM running for 9.752)
+2021-03-13 === [SpringContextShutdownHook] === INFO  === o.s.scheduling.concurrent.ThreadPoolTaskExecutor === Shutting down ExecutorService 'applicationTaskExecutor'
+2021-03-13 === [SpringContextShutdownHook] === INFO  === com.alibaba.druid.pool.DruidDataSource === {dataSource-0} closing ...
+2021-03-13 === [main] === INFO  === com.west2wp.West2wpApplicationTests === Starting West2wpApplicationTests using Java 15.0.1 on LAPTOP-DBKFOQVO with PID 15916 (started by 10060 in C:\Users\10060\IdeaProjects\west2wpJava)
+2021-03-13 === [main] === INFO  === com.west2wp.West2wpApplicationTests === The following profiles are active: dev
+2021-03-13 === [main] === INFO  === o.s.d.r.config.RepositoryConfigurationDelegate === Multiple Spring Data modules found, entering strict repository configuration mode!
+2021-03-13 === [main] === INFO  === o.s.d.r.config.RepositoryConfigurationDelegate === Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2021-03-13 === [main] === INFO  === o.s.d.r.config.RepositoryConfigurationDelegate === Finished Spring Data repository scanning in 38 ms. Found 0 Redis repository interfaces.
+2021-03-13 === [main] === INFO  === o.s.scheduling.concurrent.ThreadPoolTaskExecutor === Initializing ExecutorService 'applicationTaskExecutor'
+2021-03-13 === [main] === INFO  === com.west2wp.West2wpApplicationTests === Started West2wpApplicationTests in 8.303 seconds (JVM running for 11.406)
+2021-03-13 === [SpringContextShutdownHook] === INFO  === o.s.scheduling.concurrent.ThreadPoolTaskExecutor === Shutting down ExecutorService 'applicationTaskExecutor'
+2021-03-13 === [SpringContextShutdownHook] === INFO  === com.alibaba.druid.pool.DruidDataSource === {dataSource-0} closing ...
+2021-03-13 === [main] === INFO  === com.west2wp.West2wpApplicationTests === Starting West2wpApplicationTests using Java 15.0.1 on LAPTOP-DBKFOQVO with PID 3576 (started by 10060 in C:\Users\10060\IdeaProjects\west2wpJava)
+2021-03-13 === [main] === INFO  === com.west2wp.West2wpApplicationTests === The following profiles are active: dev
+2021-03-13 === [main] === INFO  === o.s.d.r.config.RepositoryConfigurationDelegate === Multiple Spring Data modules found, entering strict repository configuration mode!
+2021-03-13 === [main] === INFO  === o.s.d.r.config.RepositoryConfigurationDelegate === Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2021-03-13 === [main] === INFO  === o.s.d.r.config.RepositoryConfigurationDelegate === Finished Spring Data repository scanning in 40 ms. Found 0 Redis repository interfaces.
+2021-03-13 === [main] === INFO  === o.s.scheduling.concurrent.ThreadPoolTaskExecutor === Initializing ExecutorService 'applicationTaskExecutor'
+2021-03-13 === [main] === INFO  === com.west2wp.West2wpApplicationTests === Started West2wpApplicationTests in 7.862 seconds (JVM running for 9.906)
+2021-03-13 === [SpringContextShutdownHook] === INFO  === o.s.scheduling.concurrent.ThreadPoolTaskExecutor === Shutting down ExecutorService 'applicationTaskExecutor'
+2021-03-13 === [SpringContextShutdownHook] === INFO  === com.alibaba.druid.pool.DruidDataSource === {dataSource-0} closing ...
+2021-03-13 === [main] === INFO  === com.west2wp.West2wpApplicationTests === Starting West2wpApplicationTests using Java 15.0.1 on LAPTOP-DBKFOQVO with PID 4624 (started by 10060 in C:\Users\10060\IdeaProjects\west2wpJava)
+2021-03-13 === [main] === INFO  === com.west2wp.West2wpApplicationTests === The following profiles are active: dev
+2021-03-13 === [main] === INFO  === o.s.d.r.config.RepositoryConfigurationDelegate === Multiple Spring Data modules found, entering strict repository configuration mode!
+2021-03-13 === [main] === INFO  === o.s.d.r.config.RepositoryConfigurationDelegate === Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2021-03-13 === [main] === INFO  === o.s.d.r.config.RepositoryConfigurationDelegate === Finished Spring Data repository scanning in 35 ms. Found 0 Redis repository interfaces.
+2021-03-13 === [main] === INFO  === o.s.scheduling.concurrent.ThreadPoolTaskExecutor === Initializing ExecutorService 'applicationTaskExecutor'
+2021-03-13 === [main] === INFO  === com.west2wp.West2wpApplicationTests === Started West2wpApplicationTests in 8.458 seconds (JVM running for 10.612)
+2021-03-13 === [SpringContextShutdownHook] === INFO  === o.s.scheduling.concurrent.ThreadPoolTaskExecutor === Shutting down ExecutorService 'applicationTaskExecutor'
+2021-03-13 === [SpringContextShutdownHook] === INFO  === com.alibaba.druid.pool.DruidDataSource === {dataSource-0} closing ...
+2021-03-13 === [main] === INFO  === com.west2wp.West2wpApplicationTests === Starting West2wpApplicationTests using Java 15.0.1 on LAPTOP-DBKFOQVO with PID 18464 (started by 10060 in C:\Users\10060\IdeaProjects\west2wpJava)
+2021-03-13 === [main] === INFO  === com.west2wp.West2wpApplicationTests === The following profiles are active: dev
+2021-03-13 === [main] === INFO  === o.s.d.r.config.RepositoryConfigurationDelegate === Multiple Spring Data modules found, entering strict repository configuration mode!
+2021-03-13 === [main] === INFO  === o.s.d.r.config.RepositoryConfigurationDelegate === Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2021-03-13 === [main] === INFO  === o.s.d.r.config.RepositoryConfigurationDelegate === Finished Spring Data repository scanning in 42 ms. Found 0 Redis repository interfaces.
+2021-03-13 === [main] === INFO  === o.s.scheduling.concurrent.ThreadPoolTaskExecutor === Initializing ExecutorService 'applicationTaskExecutor'
+2021-03-13 === [main] === INFO  === com.west2wp.West2wpApplicationTests === Started West2wpApplicationTests in 8.115 seconds (JVM running for 10.019)
+2021-03-13 === [SpringContextShutdownHook] === INFO  === o.s.scheduling.concurrent.ThreadPoolTaskExecutor === Shutting down ExecutorService 'applicationTaskExecutor'
+2021-03-13 === [SpringContextShutdownHook] === INFO  === com.alibaba.druid.pool.DruidDataSource === {dataSource-0} closing ...
+2021-03-13 === [main] === INFO  === com.west2wp.West2wpApplicationTests === Starting West2wpApplicationTests using Java 15.0.1 on LAPTOP-DBKFOQVO with PID 23060 (started by 10060 in C:\Users\10060\IdeaProjects\west2wpJava)
+2021-03-13 === [main] === INFO  === com.west2wp.West2wpApplicationTests === The following profiles are active: dev
+2021-03-13 === [main] === INFO  === o.s.d.r.config.RepositoryConfigurationDelegate === Multiple Spring Data modules found, entering strict repository configuration mode!
+2021-03-13 === [main] === INFO  === o.s.d.r.config.RepositoryConfigurationDelegate === Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2021-03-13 === [main] === INFO  === o.s.d.r.config.RepositoryConfigurationDelegate === Finished Spring Data repository scanning in 40 ms. Found 0 Redis repository interfaces.
+2021-03-13 === [main] === INFO  === o.s.scheduling.concurrent.ThreadPoolTaskExecutor === Initializing ExecutorService 'applicationTaskExecutor'
+2021-03-13 === [main] === INFO  === com.west2wp.West2wpApplicationTests === Started West2wpApplicationTests in 8.435 seconds (JVM running for 10.394)
+2021-03-13 === [SpringContextShutdownHook] === INFO  === o.s.scheduling.concurrent.ThreadPoolTaskExecutor === Shutting down ExecutorService 'applicationTaskExecutor'
+2021-03-13 === [SpringContextShutdownHook] === INFO  === com.alibaba.druid.pool.DruidDataSource === {dataSource-0} closing ...
+2021-03-13 === [main] === INFO  === com.west2wp.West2wpApplicationTests === Starting West2wpApplicationTests using Java 15.0.1 on LAPTOP-DBKFOQVO with PID 13624 (started by 10060 in C:\Users\10060\IdeaProjects\west2wpJava)
+2021-03-13 === [main] === INFO  === com.west2wp.West2wpApplicationTests === The following profiles are active: dev
+2021-03-13 === [main] === INFO  === o.s.d.r.config.RepositoryConfigurationDelegate === Multiple Spring Data modules found, entering strict repository configuration mode!
+2021-03-13 === [main] === INFO  === o.s.d.r.config.RepositoryConfigurationDelegate === Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2021-03-13 === [main] === INFO  === o.s.d.r.config.RepositoryConfigurationDelegate === Finished Spring Data repository scanning in 46 ms. Found 0 Redis repository interfaces.
+2021-03-13 === [main] === INFO  === o.s.scheduling.concurrent.ThreadPoolTaskExecutor === Initializing ExecutorService 'applicationTaskExecutor'
+2021-03-13 === [main] === INFO  === com.west2wp.West2wpApplicationTests === Started West2wpApplicationTests in 10.002 seconds (JVM running for 12.158)
+2021-03-13 === [SpringContextShutdownHook] === INFO  === o.s.scheduling.concurrent.ThreadPoolTaskExecutor === Shutting down ExecutorService 'applicationTaskExecutor'
+2021-03-13 === [SpringContextShutdownHook] === INFO  === com.alibaba.druid.pool.DruidDataSource === {dataSource-0} closing ...
+2021-03-13 === [main] === INFO  === com.west2wp.West2wpApplicationTests === Starting West2wpApplicationTests using Java 15.0.1 on LAPTOP-DBKFOQVO with PID 19992 (started by 10060 in C:\Users\10060\IdeaProjects\west2wpJava)
+2021-03-13 === [main] === INFO  === com.west2wp.West2wpApplicationTests === The following profiles are active: dev
+2021-03-13 === [main] === INFO  === o.s.d.r.config.RepositoryConfigurationDelegate === Multiple Spring Data modules found, entering strict repository configuration mode!
+2021-03-13 === [main] === INFO  === o.s.d.r.config.RepositoryConfigurationDelegate === Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2021-03-13 === [main] === INFO  === o.s.d.r.config.RepositoryConfigurationDelegate === Finished Spring Data repository scanning in 54 ms. Found 0 Redis repository interfaces.
+2021-03-13 === [main] === INFO  === o.s.scheduling.concurrent.ThreadPoolTaskExecutor === Initializing ExecutorService 'applicationTaskExecutor'
+2021-03-13 === [main] === INFO  === com.west2wp.West2wpApplicationTests === Started West2wpApplicationTests in 10.051 seconds (JVM running for 12.253)
+2021-03-13 === [SpringContextShutdownHook] === INFO  === o.s.scheduling.concurrent.ThreadPoolTaskExecutor === Shutting down ExecutorService 'applicationTaskExecutor'
+2021-03-13 === [SpringContextShutdownHook] === INFO  === com.alibaba.druid.pool.DruidDataSource === {dataSource-0} closing ...
+>>>>>>> 2017e29 (west2wp)

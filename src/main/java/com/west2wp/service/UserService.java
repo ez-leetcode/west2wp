@@ -136,5 +136,31 @@ public interface UserService {
      */
     String removeFavorFile(String username,String url);
 
+<<<<<<< HEAD
     List<FileData> getAllFavorFile(String username);
+=======
+    /**
+     * 根据用户名获取用户收藏夹内容
+     * @param username    用户名
+     * @return   收藏夹内容
+     */
+    List<FileData> getAllFavorFile(String username);
+
+    /**
+     * 根据用户名 url 重命名文件
+     * @param username  用户名
+     * @param Filename  新文件名
+     * @param url  资源路径
+     * @return  重命名状态
+     */
+    String changeFilename(String username,String Filename,String url);
+
+    /**
+     * 根据用户名和小作文保存用户反馈
+     * @param username   用户名
+     * @param feedback   小作文
+     * @return  保存状态
+     */
+    String saveFeedback(String username,String feedback);
+>>>>>>> 2017e29 (west2wp)
 }

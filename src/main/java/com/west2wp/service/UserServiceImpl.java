@@ -1,6 +1,10 @@
 package com.west2wp.service;
 
 import com.west2wp.dao.UserMapper;
+<<<<<<< HEAD
+=======
+import com.west2wp.pojo.Feedback;
+>>>>>>> 2017e29 (west2wp)
 import com.west2wp.pojo.User;
 import com.west2wp.pojo.FileData;
 import lombok.extern.slf4j.Slf4j;
@@ -10,6 +14,10 @@ import org.springframework.stereotype.Service;
 
 import java.text.SimpleDateFormat;
 import java.util.List;
+<<<<<<< HEAD
+=======
+import java.util.UUID;
+>>>>>>> 2017e29 (west2wp)
 
 @Slf4j
 @Service
@@ -107,7 +115,10 @@ public class UserServiceImpl implements UserService{
             return true;
         }
         log.info("-----正在验证用户名----");
+<<<<<<< HEAD
         log.info(username + fileData.getUsername());
+=======
+>>>>>>> 2017e29 (west2wp)
         //判断用户名和url所属的用户名是否相符决定是否下载
         return !fileData.getUsername().equals(username);
     }
@@ -135,6 +146,12 @@ public class UserServiceImpl implements UserService{
                 return "parentFileNotExit";
             }
         }
+<<<<<<< HEAD
+=======
+        if(!parent.equals("/ck/data")){
+            parent = parent.substring(0,parent.lastIndexOf('/'));
+        }
+>>>>>>> 2017e29 (west2wp)
         //获取同级文件夹的数据,循环判断新文件夹是否重名
         log.info("-----正在获取同级文件夹数据------");
         List<FileData> fileDataList = userMapper.getSameGradeFileNameByParentFile(username,parent,"wjj");
@@ -142,8 +159,13 @@ public class UserServiceImpl implements UserService{
         if(fileDataList != null){
             log.info("-----同级文件夹不为空-----");
             for(FileData x:fileDataList){
+<<<<<<< HEAD
                 if(x.getUrl().equals(parent + '/' +Filename)){
                     log.warn("------文件夹重名,重名文件夹:" + x.getUrl() + "-----");
+=======
+                if(x.getFilename().equals(Filename)){
+                    log.warn("------文件夹重名,重名文件夹:" + x.getFilename() + "-----");
+>>>>>>> 2017e29 (west2wp)
                     return "fileNameRepeat";
                 }
             }
@@ -151,7 +173,11 @@ public class UserServiceImpl implements UserService{
         SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         String currentTime = df.format(System.currentTimeMillis());
         //生成FileData实例,把文件夹数据保存进数据库
+<<<<<<< HEAD
         FileData fileData1 = new FileData(parent + '/' + Filename,username,Filename,parent,"wjj",0.0,currentTime);
+=======
+        FileData fileData1 = new FileData(parent + '/' + Filename + '/' + UUID.randomUUID(),username,Filename,parent,"wjj",0.0,currentTime);
+>>>>>>> 2017e29 (west2wp)
         log.info("------正在把文件夹数据保存进数据库-----");
         userMapper.saveFileData(fileData1);
         log.info("------文件夹数据保存成功------");
@@ -161,7 +187,13 @@ public class UserServiceImpl implements UserService{
     @Override
     public boolean judgeParentFileExist(String username,String parentFile) {
         //根据用户名和父级文件路径判断父级文件夹是否存在
+<<<<<<< HEAD
         if(parentFile.equals("/ck/data")){
+=======
+        System.out.println(parentFile);
+        if(parentFile.equals("/ck/data")){
+            //根目录特判
+>>>>>>> 2017e29 (west2wp)
             return true;
         }
         return userMapper.getFileDataByParentFile(username,parentFile,"wjj") != null;
@@ -182,6 +214,10 @@ public class UserServiceImpl implements UserService{
     public String addFavorFile(String username, String url) {
         //根据url检查文件是否存在
         FileData fileData = userMapper.selectUserDataByUrl(url);
+<<<<<<< HEAD
+=======
+        log.info("-----正在验证收藏文件条件----");
+>>>>>>> 2017e29 (west2wp)
         if(fileData == null){
             //文件不存在
             return "notExist";
@@ -200,13 +236,24 @@ public class UserServiceImpl implements UserService{
             //文件已被收藏,返回报错
             return "repeat";
         }
+<<<<<<< HEAD
+=======
+        log.info("-----可以进行收藏-----");
+>>>>>>> 2017e29 (west2wp)
         //获取当前系统时间
         SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         String currentTime = df.format(System.currentTimeMillis());
         //设置收藏时间
         fileData.setDate(currentTime);
         //将文件信息存入数据库
+<<<<<<< HEAD
         userMapper.saveFavorFile(fileData);
+=======
+        log.info("-----正在将收藏文件存入数据库----");
+        log.info(fileData.toString());
+        userMapper.saveFavorFile(fileData);
+        log.info("-------收藏文件成功-------");
+>>>>>>> 2017e29 (west2wp)
         return "success";
     }
 
@@ -257,4 +304,55 @@ public class UserServiceImpl implements UserService{
             log.info("-----收藏文件信息删除成功----");
         }
     }
+<<<<<<< HEAD
+=======
+
+    @Override
+    public String changeFilename(String username, String filename, String url) {
+        FileData fileData = userMapper.selectUserDataByUrl(url);
+        if(fileData == null){
+            //url不存在
+            log.warn("-----重名名失败,url不存在。url:" + url + "----");
+            return "UrlWrong";
+        }
+        if(!fileData.getUsername().equals(username)){
+            //url与用户不匹配
+            log.warn("-----重命名失败,url与用户不匹配。url:" + url + " username:" + username);
+            return "UserWrong";
+        }
+        //尝试获取同名文件
+        FileData fileData1 = userMapper.selectFileDataByFilename(filename,username);
+        if(fileData1 != null){
+            //有同名文件重命名失败
+            log.warn("----重命名失败,有同名文件,filename:" + filename + "-----");
+            return "RepeatWrong";
+        }
+        log.info("----正在更新文件名,url:" + url + " filename:" + filename + "----");
+        userMapper.updateFilenameByUrl(filename,url);
+        FileData fileData2 = userMapper.selectFavorFile(username,url);
+        if(fileData2 != null){
+            //已被收藏
+            userMapper.updateFavorNameByUrl(filename,url);
+        }
+        log.info("------重命名成功-----");
+        return "success";
+    }
+
+    @Override
+    public String saveFeedback(String username, String feedback) {
+        User user = userMapper.selectByUsername(username);
+        if(user == null){
+            //用户不存在
+            return "UserWrong";
+        }
+        //获取当前系统时间
+        SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        String currentTime = df.format(System.currentTimeMillis());
+        Feedback feedback1 = new Feedback(username,feedback,currentTime);
+        log.info("-----正在保存用户反馈----");
+        userMapper.saveFeedback(feedback1);
+        log.info("-----用户反馈保存成功,用户:" + username + " 反馈:" + feedback);
+        return "success";
+    }
+>>>>>>> 2017e29 (west2wp)
 }

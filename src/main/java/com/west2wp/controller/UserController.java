@@ -38,6 +38,12 @@ public class UserController {
     //redis数据库一直出bug,改用线程安全的ConcurrentHashMap存邮箱验证时用户名验证码对
     private final ConcurrentHashMap<String,String> verificationCodeMap = new ConcurrentHashMap<>();
 
+<<<<<<< HEAD
+=======
+    //找回密码的用户名验证码对
+    private final ConcurrentHashMap<String,String> findPasswordMap = new ConcurrentHashMap<>();
+
+>>>>>>> 2017e29 (west2wp)
     //日志,一开始没用注解,后面懒得改了~
     private final Logger logger = LoggerFactory.getLogger(getClass());
 
@@ -86,7 +92,13 @@ public class UserController {
             //创建token字符串
             String token = jwtUtils.createToken(username,password);
             //把token存入哈希表
+<<<<<<< HEAD
             JWTInterceptor.tokenCodeMap.put(username,token);
+=======
+            logger.info("-----正在保存token----");
+            JWTInterceptor.tokenCodeMap.put(username,token);
+            logger.info("-----token保存成功----");
+>>>>>>> 2017e29 (west2wp)
             logger.info("登录成功,用户:" + username);
             jsonObject.put("LoginStatus",true);
             jsonObject.put("token",token);
@@ -111,9 +123,15 @@ public class UserController {
         return "success";
     }
 
+<<<<<<< HEAD
     //修改密码时发送验证码接口
     @RequestMapping("/sendEmail")
     public JSONObject sendEmail(@RequestParam("username") String username){
+=======
+    //修改(找回)密码时发送验证码接口
+    @RequestMapping("/sendEmail")
+    public JSONObject sendEmail(@RequestParam("username") String username,@RequestParam("type") String type){
+>>>>>>> 2017e29 (west2wp)
         JSONObject jsonObject = new JSONObject();
         User user = userService.getUser(username);
         if(user == null){
@@ -125,13 +143,61 @@ public class UserController {
         //5位随机验证码
         String yzm = randomString.substring(0,5);
         //同一个用户多次申请,根据哈希表原理,会覆盖原来的验证码
+<<<<<<< HEAD
         verificationCodeMap.put(username,yzm);
+=======
+        if(type.equals("changePassword")){
+            verificationCodeMap.put(username,yzm);
+        }else if(type.equals("findPassword")){
+            findPasswordMap.put(username,yzm);
+        }
+>>>>>>> 2017e29 (west2wp)
         //发送验证码
         mailService.sendEmail(user.getEmail(),yzm);
         jsonObject.put("SendEmailStatus","success");
         return jsonObject;
     }
 
+<<<<<<< HEAD
+=======
+    //找回密码接口
+    @RequestMapping("/findPassword")
+    public JSONObject findPassword(@RequestParam("username") String username,@RequestParam("newPassword") String newPassword,@RequestParam("yzm") String yzm){
+        JSONObject jsonObject = new JSONObject();
+        logger.info("-----正在尝试找回密码,用户:" + username + "-----");
+        User user = userService.getUser(username);
+        if(user == null){
+            jsonObject.put("FindPasswordStatus","UserWrong");
+            logger.warn("-----要找回密码的用户不存在,用户:" + username + "----");
+            return jsonObject;
+        }
+        //判断验证码是否正确
+        if(findPasswordMap.get(username) != null && yzm != null){
+            if(findPasswordMap.get(username).equals(yzm)){
+                //已发送验证码且验证码正确
+                logger.info("------验证码正确,用户:" + username + "----");
+                //删去对应验证码键值对(每个验证码只能用一次)
+                findPasswordMap.remove(username);
+            }else{
+                //验证码错误
+                logger.warn("------验证码错误,用户:" + username + " 原验证码:" + findPasswordMap.get(username) + " 验证码:" + yzm);
+                jsonObject.put("FindPasswordStatus","YzmWrong");
+                return jsonObject;
+            }
+        }else{
+            //验证码不存在
+            jsonObject.put("FindPasswordStatus","YzmWrong");
+            logger.warn("------验证码不存在,用户:" + username + "-----");
+            return jsonObject;
+        }
+        //验证码正确后,修改数据库中对应用户的密码
+        userService.changePassword(username,newPassword);
+        logger.info("-----修改密码成功!用户:" + username + " 新密码:" + newPassword);
+        jsonObject.put("FindPasswordStatus","success");
+        return jsonObject;
+    }
+
+>>>>>>> 2017e29 (west2wp)
     //修改密码接口
     @RequestMapping("/changePassword")
     public JSONObject changePassword(@RequestParam("username")String username,@RequestParam("password") String password,@RequestParam("newPassword") String newPassword,@RequestParam("yzm") String yzm){
@@ -151,7 +217,11 @@ public class UserController {
             return jsonObject;
         }
         //判断验证码是否正确
+<<<<<<< HEAD
         if(verificationCodeMap.get(username) != null){
+=======
+        if(verificationCodeMap.get(username) != null && yzm != null){
+>>>>>>> 2017e29 (west2wp)
             if(verificationCodeMap.get(username).equals(yzm)){
                 //已发送验证码且验证码正确
                 logger.info("------验证码正确,用户:" + username + "----");
@@ -181,6 +251,12 @@ public class UserController {
     public JSONObject fileUpload(@RequestParam("file") MultipartFile file,@RequestParam("username") String username,@RequestParam("parentFile") String parentFile){
         String username1 = username.substring(1,username.length() - 1);
         String parentFile1 = parentFile.substring(1,parentFile.length() - 1);
+<<<<<<< HEAD
+=======
+        if(!parentFile1.equals("/ck/data")){
+            parentFile1 = parentFile1.substring(0,parentFile1.lastIndexOf('/'));
+        }
+>>>>>>> 2017e29 (west2wp)
         logger.info("用户:" + username1 + " 正在上传文件");
         long currentTime1 = System.currentTimeMillis();
         JSONObject jsonObject = new JSONObject();
@@ -264,8 +340,15 @@ public class UserController {
         }
         logger.info("-----用户名和url验证成功-----");
         //获取文件格式
+<<<<<<< HEAD
         //设置文件路径
         File file = new File(url);
+=======
+        String filename = "/ck/data/" + url.substring(url.lastIndexOf('/') + 1);
+        //设置文件路径
+        File file = new File(filename);
+        logger.info(filename);
+>>>>>>> 2017e29 (west2wp)
         //获取上传前一刻时间
         long currentTime = System.currentTimeMillis();
         if(file.exists()){
@@ -340,8 +423,14 @@ public class UserController {
             logger.info("-----文件夹删除失败,url对应资源不是文件夹,url资源:" + fileData.getType() + "-----");
             return jsonObject;
         }
+<<<<<<< HEAD
         //获取文件夹内的所有文件内容
         List<FileData> fileDataList = userService.getFileInformation(username,url);
+=======
+        logger.info(url.substring(0,url.lastIndexOf('/')));
+        //获取文件夹内的所有文件内容
+        List<FileData> fileDataList = userService.getFileInformation(username,url.substring(0,url.lastIndexOf('/')));
+>>>>>>> 2017e29 (west2wp)
         for(FileData x:fileDataList){
             if(x.getType().equals("wjj")){
                 //有文件夹,无法删除,返回FileWrong
@@ -352,7 +441,11 @@ public class UserController {
         logger.info("-------正在开始删除文件夹-------");
         for(FileData x:fileDataList){
             //因为在服务器存储中所有文件都放在一个文件夹里,所以获得文件名
+<<<<<<< HEAD
             String fileUrl = "/ck/data/" + x.getFilename();
+=======
+            String fileUrl = "/ck/data/" + x.getUrl().substring(x.getUrl().lastIndexOf("/") + 1);
+>>>>>>> 2017e29 (west2wp)
             File file = new File(fileUrl);
             if(file.exists()){
                 if(file.delete()){
@@ -389,7 +482,12 @@ public class UserController {
         }
         FileData fileData = userService.getFileData(url);
         //服务器内部文件路径
+<<<<<<< HEAD
         String fileUrl = "/ck/data/" + fileData.getFilename();
+=======
+        String fileUrl = fileData.getUrl();
+        fileUrl = "/ck/data/" + fileUrl.substring(fileUrl.lastIndexOf("/") + 1);
+>>>>>>> 2017e29 (west2wp)
         File file = new File(fileUrl);
         //删除服务器对应文件
         if(file.exists()){
@@ -450,6 +548,12 @@ public class UserController {
             logger.warn("------获取文件数据失败:父级文件夹不存在----");
             return jsonObject;
         }
+<<<<<<< HEAD
+=======
+        if(!parentFile.equals("/ck/data")){
+            parentFile = parentFile.substring(0,parentFile.lastIndexOf('/'));
+        }
+>>>>>>> 2017e29 (west2wp)
         List<FileData> fileDataList = userService.getFileInformation(username,parentFile);
         jsonObject.put("getFileInformationStatus","success");
         //把获得的fileDataList存入json
@@ -642,6 +746,10 @@ public class UserController {
                 jsonObject.put("removeFavorStatus", "success");
                 break;
         }
+<<<<<<< HEAD
+=======
+        logger.info("----收藏文件移除成功,url:" + url + "用户:" + username + "----");
+>>>>>>> 2017e29 (west2wp)
         return jsonObject;
     }
 
@@ -666,8 +774,42 @@ public class UserController {
         return jsonObject;
     }
 
+<<<<<<< HEAD
     //一个小小的测试接口啦~
     @RequestMapping("hello")
+=======
+    //修改文件名接口,不允许文件重名,修改时也会改掉收藏夹的文件名
+    @RequestMapping("/changeFilename")
+    public JSONObject changeFilename(@RequestParam("username") String username,@RequestParam("newFilename") String newFilename,@RequestParam("url") String url){
+        JSONObject jsonObject = new JSONObject();
+        String status = userService.changeFilename(username,newFilename,url);
+        if(status.equals("UrlWrong") || status.equals("UserWrong") || status.equals("RepeatWrong")){
+            jsonObject.put("changeFilenameStatus",status);
+            return jsonObject;
+        }
+        //成功重命名
+        jsonObject.put("changeFilenameStatus","success");
+        return jsonObject;
+    }
+
+    //用户反馈
+    @RequestMapping("/getFeedback")
+    public JSONObject getFeedback(@RequestParam("username") String username,@RequestParam("feedback") String feedback){
+        JSONObject jsonObject = new JSONObject();
+        String status = userService.saveFeedback(username,feedback);
+        if(status.equals("UserWrong")){
+            logger.warn("----保存用户反馈失败,用户不存在----");
+            jsonObject.put("getFeedbackStatus",status);
+        }else if(status.equals("success")){
+            logger.info("----保存用户反馈成功----");
+            jsonObject.put("getFeedbackStatus",status);
+        }
+        return jsonObject;
+    }
+
+    //一个小小的测试接口啦~
+    @RequestMapping("/hello")
+>>>>>>> 2017e29 (west2wp)
     public String hello(@RequestParam("username") String username){
         logger.info("hello" + username);
         logger.info(verificationCodeMap.toString());

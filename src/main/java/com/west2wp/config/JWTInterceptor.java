@@ -39,6 +39,14 @@ public class JWTInterceptor implements HandlerInterceptor {
         }
         //获取token
         String token = request.getHeader("token");
+<<<<<<< HEAD
+=======
+        if(token == null){
+            jsonObject.put("message","EmptyWrong");
+            response.getWriter().print(jsonObject);
+            return false;
+        }
+>>>>>>> 2017e29 (west2wp)
         try{
             //验证token是否合法
             JWTUtils.TokenVerify(token);
@@ -51,6 +59,11 @@ public class JWTInterceptor implements HandlerInterceptor {
             //token过期
             log.warn("------token过期-----");
             jsonObject.put("message","DateWrong");
+<<<<<<< HEAD
+=======
+            //token过期的情况下要删掉哈希表里的键值对哦
+            tokenCodeMap.remove(username);
+>>>>>>> 2017e29 (west2wp)
             e.printStackTrace();
         }catch (AlgorithmMismatchException e){
             //算法出错
@@ -63,7 +76,10 @@ public class JWTInterceptor implements HandlerInterceptor {
             jsonObject.put("message","TokenWrong");
             e.printStackTrace();
         }
+<<<<<<< HEAD
         log.info("-----token有效-------");
+=======
+>>>>>>> 2017e29 (west2wp)
         log.info(token);
         //根据hashmap获取
         String realToken = tokenCodeMap.get(username);
@@ -81,6 +97,10 @@ public class JWTInterceptor implements HandlerInterceptor {
             return true;
         }
          */
+<<<<<<< HEAD
+=======
+        jsonObject.put("message","TokenWrong");
+>>>>>>> 2017e29 (west2wp)
         response.getWriter().print(jsonObject);
         log.info("-----用户认证失败!需要重新登录------");
         return false;

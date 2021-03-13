@@ -83,4 +83,24 @@
     <delete id="deleteFavorFileByUrl" parameterType="string">
         delete from west2_wp.favortable where url = #{url}
     </delete>
+<<<<<<< HEAD
+=======
+
+    <update id="updateFilenameByUrl" parameterType="string">
+        update west2_wp.datatable set filename = #{filename} where url = #{url}
+    </update>
+
+    <update id="updateFavorNameByUrl" parameterType="string">
+        update west2_wp.favortable set filename = #{filename} where url = #{url}
+    </update>
+
+    <select id="selectFileDataByFilename" parameterType="string" resultType="com.west2wp.pojo.FileData">
+        select * from west2_wp.datatable where filename = #{filename} and username = #{username}
+    </select>
+
+    <insert id="saveFeedback" parameterType="com.west2wp.pojo.Feedback">
+        insert into west2_wp.feedbacktable (username,feedback,date) values (#{username},#{feedback},#{date})
+    </insert>
+
+>>>>>>> 2017e29 (west2wp)
 </mapper>

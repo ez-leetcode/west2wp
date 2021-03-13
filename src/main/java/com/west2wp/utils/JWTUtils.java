@@ -41,8 +41,12 @@ public class JWTUtils {
                 .withExpiresAt(calendar.getTime())
                 .sign(Algorithm.HMAC256(jwtSecret));
         log.info("---创建token:" + token + "---");
+<<<<<<< HEAD
         log.info("-----正在保存token----");
         this.saveData(username,token);
+=======
+        //this.saveData(username,token);
+>>>>>>> 2017e29 (west2wp)
         log.info("保存成功");
         return token;
     }

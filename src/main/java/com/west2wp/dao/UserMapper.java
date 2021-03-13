@@ -1,5 +1,9 @@
 package com.west2wp.dao;
 
+<<<<<<< HEAD
+=======
+import com.west2wp.pojo.Feedback;
+>>>>>>> 2017e29 (west2wp)
 import com.west2wp.pojo.User;
 import com.west2wp.pojo.FileData;
 import org.apache.ibatis.annotations.Mapper;
@@ -22,6 +26,12 @@ public interface UserMapper {
     //保存用户收藏文件
     void saveFavorFile(FileData fileData);
 
+<<<<<<< HEAD
+=======
+    //保存用户反馈信息
+    void saveFeedback(Feedback feedback);
+
+>>>>>>> 2017e29 (west2wp)
     //根据用户名从数据库中获取用户信息
     User selectByUsername(String username);
 
@@ -43,6 +53,12 @@ public interface UserMapper {
     //根据url获取文件大小
     double getSizeByUrl(String url);
 
+<<<<<<< HEAD
+=======
+    //根据文件名获取文件信息(不允许重复名字,至多有一个)
+    FileData selectFileDataByFilename(@Param("filename") String filename,@Param("username") String username);
+
+>>>>>>> 2017e29 (west2wp)
     //根据用户名和url获取收藏文件信息
     FileData selectFavorFile(@Param("username") String username,@Param("url") String url);
 
@@ -52,6 +68,15 @@ public interface UserMapper {
     //根据用户名更新用户网盘容量
     void updateSpaceByUsername(@Param("space") double space,@Param("username") String username);
 
+<<<<<<< HEAD
+=======
+    //根据url更新用户的文件名
+    void updateFilenameByUrl(@Param("filename") String filename,@Param("url") String url);
+
+    //根据url更新用户收藏文件夹名
+    void updateFavorNameByUrl(@Param("filename") String filename,@Param("url") String url);
+
+>>>>>>> 2017e29 (west2wp)
     //根据用户名,父级文件,文件类型获取文件数据(专门用来负责文件夹的判断,文件夹不重名,所以只会返回至多一个)
     FileData getFileDataByParentFile(@Param("username") String username,@Param("parent") String parent,@Param("type") String type);
 
